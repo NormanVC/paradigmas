@@ -73,8 +73,9 @@
       // se recibe la  frase a encriptar
       const phrase = input2.value;
 
-      // inicializa la frase encriptada, que ira reciendo las letras
+      // inicializa la frase encriptada, que ira reciendo las letras ademas del json que recibe las frases encriptadas
       let encryptedPhrase = '';
+      let jsonObject = {};
 
       //revisa cada caracter en la frase
       for (let i = 0; i < phrase.length; i++) {
@@ -95,7 +96,11 @@
 
       // se actualiza output2 por la frase encriptada
       output2.textContent = encryptedPhrase;
+
+      jsonObject[uniqueWord] = encryptedPhrase;
+      console.log(jsonObject);
     });
+    
 
     const button3 = document.getElementById('button3');
 
