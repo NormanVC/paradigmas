@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Administ</title>
+</head>
+<body style="background-color:powderblue;">
+    <center><FONT SIZE=10 face="arial" color="red"> SITIO DE ENCRIPTACION </FONT></center>
+    
+    <p>
+    <center>
+    <font size="3" face="verdana" color="RED">
+    Si usted se encuentra aquí, usted es <b> USUARIO PRIVILEGIADO </b> por lo tanto puede</center>
+    </font>
+    <p>
+    <center>
+    <form>
+        <input type="text" id="input" />
+        <input type="button" id="button" value="Cambiar frase inicial" />
+    </form>
+    <div id="output"></div>
+    </center>
+
+    <br>
+    <center>
+    <form>
+        <input type="text" id="input2" />
+        <input type="button" id="button2" value="Encriptar" />
+    </form>
+    <div id="output2"></div>
+    </center>
+
+    <br>
+    <center>
+    <form>
+        <input type="button" id="button3" value="Log out" />
+    </form>
+    </center>
+
+    <script>
+    let uniqueLetters;
+
+    const input = document.getElementById('input');
+    const button = document.getElementById('button');
+    const output = document.getElementById('output');
+
+    let words = [];
+
+    button.addEventListener('click', () => {
+      // recibe el texto del input
+      const word = input.value;
+
+      //retira los espacios
+      const noSpaces = word.replace(/ /g, '');
+
+      //agrega la letra a la matriz
+      words.push([noSpaces]);
+
+      //Quita las letras repetidas
+      uniqueLetters = [...new Set(noSpaces)];
+      const uniqueWord = uniqueLetters.join('');
+
+      // Muestra la llave encriptada 
+      output.textContent = uniqueWord;
+    });
+    const input2 = document.getElementById('input2');
+    const button2 = document.getElementById('button2');
+    const output2 = document.getElementById('output2');
+
+    button2.addEventListener('click', () => {
+      // se recibe la  frase a encriptar
+      const phrase = input2.value;
+
+      // inicializa la frase encriptada, que ira reciendo las letras
+      let encryptedPhrase = '';
+
+      //revisa cada caracter en la frase
+      for (let i = 0; i < phrase.length; i++) {
+        // se obtiene el caracter actual
+        const char = phrase[i];
+
+        // Revisa la matriz
+        const charIndex = uniqueLetters.indexOf(char);
+        if (charIndex !== -1) {
+          // Si la letra esta, envia la letra siguiente
+          const nextChar = uniqueLetters[(charIndex + 1) % uniqueLetters.length];
+          encryptedPhrase += nextChar;
+        } else {
+          // Si la letra no se encuentra, la deja como esta
+          encryptedPhrase += char;
+        }
+      }
+
+      // se actualiza output2 por la frase encriptada
+      output2.textContent = encryptedPhrase;
+    });
+
+    const button3 = document.getElementById('button3');
+
+    button3.addEventListener('click', () => {
+        // se  redirige a index
+        window.location.replace('index.html');
+    });
+    </script>
+</body>
+</html>
