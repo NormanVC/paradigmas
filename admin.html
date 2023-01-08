@@ -22,7 +22,6 @@
     </form>
     <div id="output"></div>
     </center>
-
     <br>
     <center>
     <form>
@@ -36,15 +35,22 @@
     <center>
     <form>
         <input type="button" id="button3" value="Log out" />
+        <input type="button" id="mostrar" value="Mostrar lista"/>
+
     </form>
     </center>
-
+   
     <script>
     let uniqueLetters;
 
     const input = document.getElementById('input');
     const button = document.getElementById('button');
     const output = document.getElementById('output');
+    const  mostrar = document.getElementById('mostrar');
+
+    mostrar.addEventListener('click', () =>
+    alert('Lo siento profe, no lo hice')
+    )
 
     let words = [];
 
