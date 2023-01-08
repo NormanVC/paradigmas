@@ -3,7 +3,6 @@
 <head>
     <title>Usuario secundario panel</title>
 </head>
-<body>
 <body style="background-color:pink;">
 <center><FONT SIZE=10 face="arial" color="BLUE"> SITIO DE ENCRIPTACION </FONT></center>
 
@@ -12,7 +11,7 @@
 <font size="3" face="verdana" color="BLUE">
 Si usted se encuentra aqui, usted es <b> USUARIO SECUNDARIO </b> por lo tanto puede</center>
 </font>
-<p>
+<p></p>
 <!-- se reutiliza el codigo de forma de encriptacion de admin --> 
 <center>
     <form>
@@ -21,12 +20,23 @@ Si usted se encuentra aqui, usted es <b> USUARIO SECUNDARIO </b> por lo tanto pu
     </form>
     <div id="output2"></div>
 </center>
+<p></p>
+<center>
+    <button onclick="window.location.replace('index.html')">Volver al inicio</button>
+    <input type="button" id="mostrar" value="Mostrar lista"/>
+</center>
 
 <!-- se reutiliza el codigo de encriptacion de  admin y se adecua para trabajar con localstorage.getitem outputKey -->
 <script>
-    const input2 = document.getElementById('input2');
+ const input2 = document.getElementById('input2');
 const button2 = document.getElementById('button2');
 const output2 = document.getElementById('output2');
+const  mostrar = document.getElementById('mostrar');
+
+mostrar.addEventListener('click', () =>
+alert('Lo siento profe, no lo hice')
+)
+
 
 button2.addEventListener('click', () => {
   const key = localStorage.getItem('outputKey');
@@ -44,6 +54,7 @@ button2.addEventListener('click', () => {
   }
   output2.textContent = encryptedWord;
 });
+
 </script>
 
 <body>
