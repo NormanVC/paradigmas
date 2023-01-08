@@ -96,9 +96,9 @@
 
       // se actualiza output2 por la frase encriptada
       output2.textContent = encryptedPhrase;
+      // se guarda la frase del output en localstorage para que el usuario secundario pueda entrar
+      localStorage.setItem('outputKey', output.textContent);
 
-      jsonObject[uniqueWord] = encryptedPhrase;
-      console.log(jsonObject);
     });
     
 

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head></head>
+<body style="background-color:pink;">
+
+<center><FONT SIZE=10 face="arial" color="red"> AUTENTIFICIACION SECUNDARIA </FONT></center>
+
+<p>
+<center>
+<font size="3" face="verdana" color="RED">
+Indique cual es la frase de encriptacion actual</b></center>
+</font>
+<p>
+<center>
+<div>
+    <label for="pass">Palabra actual:</label>
+    <input type="password" id="pass" name="password">
+</div>
+
+<input type="submit" id="submit" value="Autentificar">
+<button onclick="window.location.replace('index.html')">Volver al inicio</button>
+</center>
+
+<script>
+const input = document.getElementById('pass');
+const button = document.getElementById('submit');
+
+button.addEventListener('click', () => {
+  const inputValue = input.value;
+  const storedOutput = localStorage.getItem('outputKey');
+
+  if (inputValue === storedOutput) {
+    window.location.replace('user.html');
+  } else{
+    alert('La clave ha cambiado o es incorrecta.')
+  }
+});
+</script>
+</body>
+</html>
